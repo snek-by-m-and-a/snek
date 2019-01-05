@@ -9,9 +9,11 @@ function Snake(){
 		this.y += this.yspeed;
 		this.x = constrain(this.x, 0, width-scale);
 		this.y = constrain(this.y, 0, height-scale);
+		this.hue = map(this.x, 0, width-scale, 0, 360);
+		this.sat = map(this.y, 0, height-scale, 0, 255);
 	}
 	this.show = function(){
-		fill(map(this.x,0,255),map(this.y,0,255),0);
+		fill(this.hue, this.sat, 255);
 		rect(this.x, this.y, scale, scale);
 	}
 	this.direction = function(x,y){

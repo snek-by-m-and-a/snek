@@ -1,11 +1,11 @@
 let snek;
-let scale = 10;
+let scale = 20;
 
 function setup() {
-	colorMode(HSB);
+	colorMode(HSB,360,100,100);
 	createCanvas(400,400);
 	snek = new Snake
-	frameRate(scale);
+	frameRate(7);
 }
 function keyPressed(){
 	if(keyCode == UP_ARROW && snek.yspeed != scale){
@@ -23,7 +23,7 @@ function keyPressed(){
 }
 
 function draw() {
-	background(0);
+	background(25);
 	snek.update();
 	snek.show();
 	
