@@ -3,6 +3,7 @@ let mongoose
 let scale = 15;
 
 function setup() {
+	createCanvas(40*scale,40*scale);
 	snek = new Snake(0);
 	mongoose = new Snake(1);
 	food = new Food();
