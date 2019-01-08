@@ -9,7 +9,7 @@ function Snake(color){
 		this.y += this.yspeed;
 		this.x = constrain(this.x, 0, width-scale);
 		this.y = constrain(this.y, 0, height-scale);
-		for (i=this.tail.length;i>0;i++){
+		for (i=this.tail.length-1;i>0;i--){
 			if(i==0){
 				this.tail[i].x = this.x;
 				this.tail[i].y = this.y;
