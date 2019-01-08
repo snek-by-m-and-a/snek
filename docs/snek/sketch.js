@@ -1,21 +1,28 @@
 let snek;
 let mongoose;
 let scale = 20;
-let start = true;
+let start = false;
 let end = false;
 let sscore = 0;
 let mscore = 0;
 let round = 1;
+let player = 0;
 
 function setup() {
 	createCanvas(40*scale,40*scale);
 	frameRate(10);
 	startscreen();
-	gameSetup();
 }
 
 function draw() {
-	if(start && !end){runGame()};
+	if(start && !end){
+		if (players ==2){
+			runTwoPlayer()
+		}
+		if (players ==1){
+			runSinglePlayer()
+		}
+	};
 	if(end){endscreen()}
 }
 
@@ -45,18 +52,32 @@ function keyPressed(){
 		mongoose.direction(1,0)
 	}
 }
-function startscreen(){}
 
+//START AND END SCREENS
+function startscreen(){
+	background(100);
+	let twoPlayer;
+	twoPlayer = createButton("two player");
+	twoPlayer.mousePressed(twoPlayerSetup);
+	twoPlayer.position(width/2,height/2);
+	
+	singlePlayer = createButton("Single Player");
+	singlePlayer.mousePressed(singlePlayerSetup);
+	singlePlayer.position(width/2,3*height/4);
+}
+function endscreen(){}
 
 
 //TWO PLAYER GAME
-function gameSetup(){
+function twoPlayerSetup(){
 	snek = new Snake(0);
 	mongoose = new Snake(1);
 	food = new Food();
+	start = true;
+	players = 2
 } 
 
-function runGame(){
+function runTwoPlayer(){
 	background(100);
 	textSize(scale);
 	text(['mongoose:'+mscore],5,scale);
@@ -84,5 +105,28 @@ function runGame(){
 	}
 	else if(mscore==5){
 		end = true;
+	}
+}
+
+//SINGLE PLAYER GAME
+function singlePlayerSetup(){
+	snek = new Snake(0);
+	mongoose = new Snake(1);
+	food = new Food();
+	start = true;
+	players = 1;
+} 
+
+function runSinglePlayer(){
+	background(100);
+	textSize(scale);
+	text(['snek:'+sscore],width-3.5*scale,scale);
+	food.show();
+	food.eat()
+	snek.update();
+	snek.show();
+	for(let i=1;i<snek.tail.length;i++){
+		snek.tail[i].show();
+		snek.tail[i].kill();
 	}
 }

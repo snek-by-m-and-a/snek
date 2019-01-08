@@ -13,7 +13,7 @@ function Food(){
 	}
 	
 	this.eat = function(){
-		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y){
+		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y && players == 2){
 			mongoose.grow();
 			this.anotherOne();
 			
@@ -21,6 +21,7 @@ function Food(){
 		else if (snek.xLoc == this.x && snek.yLoc == this.y){
 			snek.grow();
 			this.anotherOne();
+			if (players ==1){sscore++} 
 		}
 	}
 	

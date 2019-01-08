@@ -38,17 +38,23 @@ function Snake(color){
 	}
 	
 	this.kill = function(){
-		if(color == 0){-
-			alert(`mongoose wins round ${round}`);
-			mscore +=1;
-			round +=1;
-			setup();
+		if(players ==1){
+			endscreen();
+			alert(`final length is ${sscore}`)
 		}
-		else if(color==1){
-			alert(`snek wins round ${round}`);
-			sscore +=1;
-			round +=1;
-			setup();
+		else{
+			if(color == 0){
+				alert(`mongoose wins round ${round}`);
+				mscore +=1;
+				round +=1;
+				setup();
+			}
+			else if(color==1){
+				alert(`snek wins round ${round}`);
+				sscore +=1;
+				round +=1;
+				setup();
+			}
 		}
 	}
 	
@@ -65,7 +71,7 @@ function segment(color){
 	}
 	
 	this.kill = function(){
-		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y){
+		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y && players == 2){
 			mongoose.kill();
 		}
 		else if (snek.xLoc == this.x && snek.yLoc == this.y){
