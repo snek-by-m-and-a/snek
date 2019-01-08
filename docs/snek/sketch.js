@@ -1,6 +1,9 @@
 let snek;
 let mongoose
 let scale = 15;
+let sscore = 0;
+let mscore = 0;
+let round = 1;
 
 function setup() {
 	createCanvas(40*scale,40*scale);
@@ -12,19 +15,27 @@ function setup() {
 
 function draw() {
 	background(100);
+	textSize(12);
+	text(['mongoose:' ,mscore],5,10);
+	text(['snek:' ,sscore],width-45,10);
+	fill(180);
+	noStroke();
+	textSize(40*scale);
+	text(round,width/4,5*height/6);
+	food.show();
+	food.eat()
 	snek.update();
 	snek.show();
-	for(let i=0;i<snek.tail.length;i++){
-		snek.tail[i].show()
+	for(let i=1;i<snek.tail.length;i++){
+		snek.tail[i].show();
+		snek.tail[i].kill();
 	}
 	mongoose.update();
 	mongoose.show();
-	for(let i=0;i<mongoose.tail.length;i++){
-		mongoose.tail[i].show()
+	for(let i=1;i<mongoose.tail.length;i++){
+		mongoose.tail[i].show();
+		mongoose.tail[i].kill();
 	}
-	food.show();
-	food.eat()
-	
 	
 }
 

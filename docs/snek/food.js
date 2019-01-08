@@ -13,12 +13,12 @@ function Food(){
 	}
 	
 	this.eat = function(){
-		if (mongoose.x == this.x && mongoose.y == this.y){
+		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y){
 			mongoose.grow();
 			this.anotherOne();
 			
 		}
-		else if (snek.x == this.x && snek.y == this.y){
+		else if (snek.xLoc == this.x && snek.yLoc == this.y){
 			snek.grow();
 			this.anotherOne();
 		}

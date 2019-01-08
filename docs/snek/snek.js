@@ -1,52 +1,59 @@
 function Snake(color){
-	this.x = (20+color)*scale;
-	this.y = 20*scale;
+	this.xLoc = (20+color)*scale;
+	this.yLoc = 20*scale;
 	this.xspeed = pow(-1,color)*scale;
 	this.yspeed = 0;
 	
 	this.update = function(){
-		this.x += this.xspeed;
-		this.y += this.yspeed;
-		this.x = constrain(this.x, 0, width-scale);
-		this.y = constrain(this.y, 0, height-scale);
-		for (i=this.tail.length-1;i>0;i--){
+		this.xLoc += this.xspeed;
+		this.yLoc += this.yspeed;
+		this.xLoc = constrain(this.xLoc, 0, width-scale);
+		this.yLoc = constrain(this.yLoc, 0, height-scale);
+		for (i=this.tail.length-1;i>=0;i--){
 			if(i==0){
-				this.tail[i].x = this.x;
-				this.tail[i].y = this.y;
+				this.tail[i].x = this.xLoc;
+				this.tail[i].y = this.yLoc;
+				
 			}
-			else if(i!==0){
+			else if(i!=0){
 				this.tail[i].x = this.tail[i-1].x;
 				this.tail[i].y = this.tail[i-1].y;
 			}
 		}
 	}
 	this.show = function(){
-		fill(255-(255*color));
-		rect(this.x, this.y, scale, scale);
+		stroke(255-(255*color));
+		strokeWeight(2);
 		fill(255*color);
-		rect(this.x+2, this.y+2, scale-4, scale-4);
+		rect(this.xLoc, this.yLoc, scale, scale);
 	}
 	this.direction = function(x,y){
 		this.xspeed = x*scale;
 		this.yspeed = y*scale;
 	}
 	
-	this.tail = [];
+	this.tail = [new segment];
 	this.grow = function(){
-		this.tail.push(new segment())
+		this.tail.push(new segment(color))
 	}
 	
 	this.kill = function(){
-		if(color == 0){
-			//mongoose wins
+		if(color == 0){-
+			alert(`mongoose wins round ${round}`);
+			mscore +=1;
+			round +=1;
+			setup();
 		}
 		else if(color==1){
-			//snek wins
+			alert(`snek wins round ${round}`);
+			sscore +=1;
+			round +=1;
+			setup();
 		}
 	}
 	
 }
-function segment(){
+function segment(color){
 	this.x = 0;
 	this.y = 0;
 	
@@ -58,10 +65,10 @@ function segment(){
 	}
 	
 	this.kill = function(){
-		if (mongoose.x == this.x && mongoose.y == this.y){
+		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y){
 			mongoose.kill();
 		}
-		else if (snek.x == this.x && snek.y == this.y){
+		else if (snek.xLoc == this.x && snek.yLoc == this.y){
 			snek.kill();
 		}
 	}
