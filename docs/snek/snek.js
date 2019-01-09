@@ -1,6 +1,6 @@
 function Snake(color){
-	this.xLoc = (20+color)*scale;
-	this.yLoc = 20*scale;
+	this.xLoc = (19+color)*scale;
+	this.yLoc = 19*scale;
 	this.xspeed = pow(-1,color)*scale;
 	this.yspeed = 0;
 	
@@ -39,7 +39,7 @@ function Snake(color){
 	
 	this.kill = function(){
 		if(players ==1){
-			endscreen();
+			end = true;
 			alert(`final length is ${sscore}`)
 		}
 		else{
@@ -47,13 +47,13 @@ function Snake(color){
 				alert(`mongoose wins round ${round}`);
 				mscore +=1;
 				round +=1;
-				setup();
+				twoPlayerSetup();
 			}
 			else if(color==1){
 				alert(`snek wins round ${round}`);
 				sscore +=1;
 				round +=1;
-				setup();
+				twoPlayerSetup();
 			}
 		}
 	}

@@ -54,27 +54,34 @@ function keyPressed(){
 }
 
 //START AND END SCREENS
+//START SCREEN
 function startscreen(){
 	background(100);
 	let twoPlayer;
 	twoPlayer = createButton("two player");
 	twoPlayer.mousePressed(twoPlayerSetup);
-	twoPlayer.position(width/2,height/2);
+	twoPlayer.position(windowWidth/2,height/2);
 	
 	singlePlayer = createButton("Single Player");
 	singlePlayer.mousePressed(singlePlayerSetup);
-	singlePlayer.position(width/2,3*height/4);
+	singlePlayer.position(windowWidth/2,3*height/4);
 }
-function endscreen(){}
+//END START SCREEN
 
+//END SCREEN
+function endscreen(){
+	background(100);
+}
+//END OF SCREENS
 
 //TWO PLAYER GAME
 function twoPlayerSetup(){
+	removeElements();
 	snek = new Snake(0);
 	mongoose = new Snake(1);
 	food = new Food();
 	start = true;
-	players = 2
+	players = 2;
 } 
 
 function runTwoPlayer(){
@@ -107,9 +114,11 @@ function runTwoPlayer(){
 		end = true;
 	}
 }
+//END OF TWO PLAYER GAME
 
 //SINGLE PLAYER GAME
 function singlePlayerSetup(){
+	removeElements();
 	snek = new Snake(0);
 	mongoose = new Snake(1);
 	food = new Food();
@@ -130,3 +139,4 @@ function runSinglePlayer(){
 		snek.tail[i].kill();
 	}
 }
+//END OF SINGLE PLAYER GAME
