@@ -3,7 +3,8 @@ function Food(){
 	this.y = floor(random(40))*scale;
 	
 	this.show = function(){
-		fill(255,0,0);
+		stroke(218,172,213)
+		fill(142,69,133);
 		rect(this.x,this.y,scale,scale)
 	}
 	

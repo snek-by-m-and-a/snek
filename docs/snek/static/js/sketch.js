@@ -77,8 +77,8 @@ function endscreen(){
 //TWO PLAYER GAME
 function twoPlayerSetup(){
 	removeElements();
-	snek = new Snake(0);
-	mongoose = new Snake(1);
+	snek = new Snake(1);
+	mongoose = new Snake(0);
 	food = new Food();
 	start = true;
 	players = 2;
@@ -87,6 +87,7 @@ function twoPlayerSetup(){
 function runTwoPlayer(){
 	background(100);
 	textSize(scale);
+	stroke(0)
 	text(['mongoose:'+mscore],5,scale);
 	text(['snek:'+sscore],width-3.5*scale,scale);
 	fill(180);
@@ -119,8 +120,8 @@ function runTwoPlayer(){
 //SINGLE PLAYER GAME
 function singlePlayerSetup(){
 	removeElements();
-	snek = new Snake(0);
-	mongoose = new Snake(1);
+	snek = new Snake(1);
+	mongoose = new Snake(0);
 	food = new Food();
 	start = true;
 	players = 1;

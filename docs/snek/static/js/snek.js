@@ -1,7 +1,7 @@
 function Snake(color){
 	this.xLoc = (19+color)*scale;
 	this.yLoc = 19*scale;
-	this.xspeed = pow(-1,color)*scale;
+	this.xspeed = pow(-1,color+1)*scale;
 	this.yspeed = 0;
 	
 	this.update = function(){
