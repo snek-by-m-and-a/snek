@@ -24,8 +24,9 @@ function Snake(color){
 	this.show = function(){
 		stroke(255-(255*color));
 		strokeWeight(2);
-		fill(255*color);
+		fill(255,0,0);
 		rect(this.xLoc, this.yLoc, scale, scale);
+		fill(255);
 	}
 	this.direction = function(x,y){
 		this.xspeed = x*scale;
@@ -34,7 +35,7 @@ function Snake(color){
 	
 	this.tail = [new segment];
 	this.grow = function(){
-		this.tail.push(new segment(color))
+		this.tail.push(new segment(color,this.tail.length))
 	}
 	
 	this.kill = function(){
@@ -59,15 +60,18 @@ function Snake(color){
 	}
 	
 }
-function segment(color){
+function segment(color,index){
 	this.x = 0;
 	this.y = 0;
 	
 	this.show = function(){
 		fill(255-(255*color));
 		rect(this.x, this.y, scale, scale);
-		fill(255*color);
+		colorMode(HSB);
+		fill((32*index)%255,255,255);
+		colorMode(RGB);
 		rect(this.x+2, this.y+2, scale-4, scale-4);
+		fill(255);
 	}
 	
 	this.kill = function(){
