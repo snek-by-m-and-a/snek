@@ -100,13 +100,16 @@ let mungose;
 //TWO PLAYER GAME
 let snekHasPressed = false;
 let mungoseHasPressed = false;
+let hasRun = false
 function twoPlayerSetup(){
 	removeElements();
 	snek = new Snake(1);
 	mungose = new Snake(0);
-	grape = new grape();
+	if(hasRun){grape.anotherOne()}
+	else{grape = new grape();}
 	start = true;
 	players = 2;
+	hasRun = true
 } 
 
 function runTwoPlayer(){
