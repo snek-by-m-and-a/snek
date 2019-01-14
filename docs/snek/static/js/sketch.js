@@ -92,26 +92,24 @@ function startscreen(){
 
 //END SCREEN
 function endscreen(){
-	background(100)
+	removeElements();
+	background(100);
+	let startAgain = createButton("Back to Start");
+	startAgain.parent("gameHolder");
+	startAgain.mousePressed(beginAgain);
+	startAgain.position(windowWidth/2,height/2);
+
 	if(players==1){
 		let singlePlayerAgain = createButton("Play Single Player Again?");
 		singlePlayerAgain.parent("gameHolder");
 		singlePlayerAgain.mousePressed(singleAgain);
 		singlePlayerAgain.position(windowWidth/2,3*height/4);
-		let startAgain = createButton("Back to Start");
-		startAgain.parent("gameHolder");
-		startAgain.mousePressed(beginAgain);
-		startAgain.position(windowWidth/4,6*height/2);
 	}
 	else if(players==2){
 		let twoPlayerAgain = createButton("Play Two Player Again?");
 		twoPlayerAgain.parent("gameHolder");
 		twoPlayerAgain.mousePressed(twoAgain);
 		twoPlayerAgain.position(windowWidth/2,height/2);
-		let startAgain = createButton("Back to Start");
-		startAgain.parent("gameHolder");
-		startAgain.mousePressed(beginAgain);
-		startAgain.position(windowWidth/4,6*height/2);
 	}
 }
 
