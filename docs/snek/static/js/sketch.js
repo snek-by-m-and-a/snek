@@ -4,6 +4,8 @@ let sscore = 0;
 let mscore = 0;
 let round = 1;
 let players = 0;
+let hasRun = false
+
 //page stuff
 var element = document.createElement('pageContent');
 element.style.width = `${40*scale}px`;
@@ -72,6 +74,7 @@ function keyPressed(){
 //START AND END SCREENS
 //START SCREEN
 function startscreen(){
+	hasRun = false;
 	removeElements();
 	background(100);
 	let twoPlayer;
@@ -89,7 +92,46 @@ function startscreen(){
 
 //END SCREEN
 function endscreen(){
-	background(100);
+	background(100)
+	if(players==1){
+		let singlePlayerAgain = createButton("Play Single Player Again?");
+		singlePlayerAgain.parent("gameHolder");
+		singlePlayerAgain.mousePressed(singleAgain);
+		singlePlayerAgain.position(windowWidth/2,3*height/4);
+		let startAgain = createButton("Back to Start");
+		startAgain.parent("gameHolder");
+		startAgain.mousePressed(beginAgain);
+		startAgain.position(windowWidth/4,6*height/2);
+	}
+	else if(players==2){
+		let twoPlayerAgain = createButton("Play Two Player Again?");
+		twoPlayerAgain.parent("gameHolder");
+		twoPlayerAgain.mousePressed(twoAgain);
+		twoPlayerAgain.position(windowWidth/2,height/2);
+		let startAgain = createButton("Back to Start");
+		startAgain.parent("gameHolder");
+		startAgain.mousePressed(beginAgain);
+		startAgain.position(windowWidth/4,6*height/2);
+	}
+}
+
+function singleAgain(){
+	end = false;
+	sscore = 0;
+	singlePlayerSetup();
+	runSinglePlayer();
+}
+function twoAgain(){
+	end = false;
+	sscore = 0;
+	mscore = 0;
+	round = 1;
+	twoPlayerSetup();
+	runTwoPlayer();
+}
+function beginAgain(){
+	start = false;
+	end = false;
 }
 //END OF SCREENS
 
@@ -97,16 +139,18 @@ function endscreen(){
 let snek;
 let mungose;
 
+//THE ALLMIGHTY GRAPE
+let grape;
+
 //TWO PLAYER GAME
 let snekHasPressed = false;
 let mungoseHasPressed = false;
-let hasRun = false
 function twoPlayerSetup(){
 	removeElements();
 	snek = new Snake(1);
 	mungose = new Snake(0);
 	if(hasRun){grape.anotherOne()}
-	else{grape = new grape();}
+	else{grape = new Grape();}
 	start = true;
 	players = 2;
 	hasRun = true
@@ -152,7 +196,7 @@ function singlePlayerSetup(){
 	removeElements();
 	snek = new Snake(1);
 	mungose = new Snake(0);
-	grape = new grape();
+	grape = new Grape();
 	start = true;
 	players = 1;
 } 

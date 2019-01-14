@@ -1,11 +1,11 @@
-function grape(){
+function Grape(){
 	this.x = floor(random(40))*scale;
 	this.y = floor(random(40))*scale;
 	
 	this.show = function(){
-		stroke(218,172,213)
+		stroke(218,172,213);
 		fill(142,69,133);
-		ellipse(this.x+scale/2,this.y+scale/2,scale,scale)
+		ellipse(this.x+scale/2,this.y+scale/2,scale,scale);
 	}
 	
 	this.anotherOne = function(){
