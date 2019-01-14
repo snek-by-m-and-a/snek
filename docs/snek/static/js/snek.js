@@ -1,18 +1,18 @@
 function Snake(color){
-	this.xLoc = (19+color)*scale;
-	this.yLoc = 19*scale;
+	this.x = (19+color)*scale;
+	this.y = 19*scale;
 	this.xspeed = pow(-1,color+1)*scale;
 	this.yspeed = 0;
 	
 	this.update = function(){
-		this.xLoc += this.xspeed;
-		this.yLoc += this.yspeed;
-		this.xLoc = constrain(this.xLoc, 0, width-scale);
-		this.yLoc = constrain(this.yLoc, 0, height-scale);
+		this.x += this.xspeed;
+		this.y += this.yspeed;
+		this.x = constrain(this.x, 0, width-scale);
+		this.y = constrain(this.y, 0, height-scale);
 		for (i=this.tail.length-1;i>=0;i--){
 			if(i==0){
-				this.tail[i].x = this.xLoc;
-				this.tail[i].y = this.yLoc;
+				this.tail[i].x = this.x;
+				this.tail[i].y = this.y;
 				
 			}
 			else if(i!=0){
@@ -25,7 +25,7 @@ function Snake(color){
 		stroke(255-(255*color));
 		strokeWeight(2);
 		fill(255,0,0);
-		rect(this.xLoc, this.yLoc, scale, scale);
+		rect(this.x, this.y, scale, scale);
 		fill(255);
 	}
 	this.direction = function(x,y){
@@ -45,7 +45,7 @@ function Snake(color){
 		}
 		else{
 			if(color == 0){
-				alert(`mongoose wins round ${round}`);
+				alert(`mungose wins round ${round}`);
 				mscore +=1;
 				round +=1;
 				twoPlayerSetup();
@@ -75,10 +75,10 @@ function segment(color,index){
 	}
 	
 	this.kill = function(){
-		if (mongoose.xLoc == this.x && mongoose.yLoc == this.y && players == 2){
-			mongoose.kill();
+		if (mungose.x == this.x && mungose.y == this.y && players == 2){
+			mungose.kill();
 		}
-		else if (snek.xLoc == this.x && snek.yLoc == this.y){
+		else if (snek.x == this.x && snek.y == this.y){
 			snek.kill();
 		}
 	}
