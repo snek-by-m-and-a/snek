@@ -45,14 +45,14 @@ function Snake(color){
 		}
 		else{
 			if(color == 0){
-				alert(`mungose wins round ${round}`);
-				mscore +=1;
+				alert(`snek wins round ${round}`);
+				sscore +=1;
 				round +=1;
 				twoPlayerSetup();
 			}
 			else if(color==1){
-				alert(`snek wins round ${round}`);
-				sscore +=1;
+				alert(`mungose wins round ${round}`);
+				mscore +=1;
 				round +=1;
 				twoPlayerSetup();
 			}
