@@ -3,6 +3,7 @@ body {
 	margin: 0;
 	display: flex;
 	justify-content: center;
+	background-image:linear-gradient(red, orange, yellow, green, blue, indigo, violet);
 }
 
 button {
@@ -12,7 +13,15 @@ button {
 }
 
 #pageContent{
-	margin:auto
+	width:80%;
+	min-width:800px;
+	margin:auto;
+	max-width: 1200px;
+	background-color: white;
+	min-height:100vh;
+	margin-bottom:200px;
+	border:;
+	border-radius:5px;
 }
 
 #gameHolder{
@@ -22,5 +31,7 @@ button {
 }
 
 #description{
-	margin:auto
+	margin:auto;
+	width: inherit;
+	min-height:100vh-800px;
 }

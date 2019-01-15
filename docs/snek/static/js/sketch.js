@@ -4,13 +4,10 @@ let sscore = 0;
 let mscore = 0;
 let round = 1;
 let players = 0;
-let hasRun = false
-
-//page stuff
-var element = document.createElement('pageContent');
-element.style.width = `${40*scale}px`;
+let hasRun = false;
 
 function setup() {
+	console.log(windowWidth);
 	var myCanvas = createCanvas(40*scale,40*scale);
 	myCanvas.parent("gameHolder");
 	frameRate(10);
