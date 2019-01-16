@@ -51,7 +51,7 @@ function Snake(color){
 				twoPlayerSetup();
 			}
 			else if(color==1){
-				alert(`mungose wins round ${round}`);
+				alert(`mongoose wins round ${round}`);
 				mscore +=1;
 				round +=1;
 				twoPlayerSetup();
@@ -75,8 +75,8 @@ function segment(color,index){
 	}
 	
 	this.kill = function(){
-		if (mungose.x == this.x && mungose.y == this.y && players == 2){
-			mungose.kill();
+		if (mongoose.x == this.x && mongoose.y == this.y && players == 2){
+			mongoose.kill();
 		}
 		else if (snek.x == this.x && snek.y == this.y){
 			snek.kill();

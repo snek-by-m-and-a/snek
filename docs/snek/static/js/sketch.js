@@ -49,22 +49,22 @@ function keyPressed(){
 		snek.direction(1,0)
 		snekHasPressed = true;
 	}
-	//MUNGOSE MOVE
-	else if(keyCode == 87 && mungose.yspeed != scale && !mungoseHasPressed){
-		mungose.direction(0,-1)
-		mungoseHasPressed = true;
+	//mongoose MOVE
+	else if(keyCode == 87 && mongoose.yspeed != scale && !mongooseHasPressed){
+		mongoose.direction(0,-1)
+		mongooseHasPressed = true;
 	}
-	else if(keyCode == 83 && mungose.yspeed != -scale){
-		mungose.direction(0,1)
-		mungoseHasPressed = true;
+	else if(keyCode == 83 && mongoose.yspeed != -scale && !mongooseHasPressed){
+		mongoose.direction(0,1)
+		mongooseHasPressed = true;
 	}
-	else if(keyCode == 65 && mungose.xspeed != scale){
-		mungose.direction(-1,0)
-		mungoseHasPressed = true;
+	else if(keyCode == 65 && mongoose.xspeed != scale && !mongooseHasPressed){
+		mongoose.direction(-1,0)
+		mongooseHasPressed = true;
 	}
-	else if(keyCode == 68 && mungose.xspeed != -scale){
-		mungose.direction(1,0)
-		mungoseHasPressed = true;
+	else if(keyCode == 68 && mongoose.xspeed != -scale && !mongooseHasPressed){
+		mongoose.direction(1,0)
+		mongooseHasPressed = true;
 	}
 }
 
@@ -135,18 +135,18 @@ function beginAgain(){
 
 //THE SNEKS
 let snek;
-let mungose;
+let mongoose;
 
 //THE ALLMIGHTY GRAPE
 let grape;
 
 //TWO PLAYER GAME
 let snekHasPressed = false;
-let mungoseHasPressed = false;
+let mongooseHasPressed = false;
 function twoPlayerSetup(){
 	removeElements();
 	snek = new Snake(1);
-	mungose = new Snake(0);
+	mongoose = new Snake(0);
 	if(hasRun){grape.anotherOne()}
 	else{grape = new Grape();}
 	start = true;
@@ -155,12 +155,12 @@ function twoPlayerSetup(){
 } 
 
 function runTwoPlayer(){
-	mungoseHasPressed = false;
+	mongooseHasPressed = false;
 	snekHasPressed = false;
 	background(100);
 	textSize(scale);
 	stroke(0)
-	text(['mungose:'+mscore],5,scale);
+	text(['mongoose:'+mscore],5,scale);
 	text(['snek:'+sscore],width-3.5*scale,scale);
 	fill(180);
 	noStroke();
@@ -174,11 +174,11 @@ function runTwoPlayer(){
 		snek.tail[i].show();
 		snek.tail[i].kill();
 	}
-	mungose.update();
-	mungose.show();
-	for(let i=1;i<mungose.tail.length;i++){
-		mungose.tail[i].show();
-		mungose.tail[i].kill();
+	mongoose.update();
+	mongoose.show();
+	for(let i=1;i<mongoose.tail.length;i++){
+		mongoose.tail[i].show();
+		mongoose.tail[i].kill();
 	}
 	if(sscore == 5){
 		end = true;
@@ -193,7 +193,7 @@ function runTwoPlayer(){
 function singlePlayerSetup(){
 	removeElements();
 	snek = new Snake(1);
-	mungose = new Snake(0);
+	mongoose = new Snake(0);
 	grape = new Grape();
 	start = true;
 	players = 1;

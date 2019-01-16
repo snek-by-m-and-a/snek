@@ -20,8 +20,8 @@ function Grape(){
 		}
 		
 		if(players == 2){
-			for(let i=0; i<mungose.tail.length; i++){
-				if(this.x==mungose.tail[i].x && this.y==mungose.tail[i].y){
+			for(let i=0; i<mongoose.tail.length; i++){
+				if(this.x==mongoose.tail[i].x && this.y==mongoose.tail[i].y){
 					this.anotherOne();
 				}
 			}
@@ -29,8 +29,8 @@ function Grape(){
 	}
 	
 	this.eat = function(){
-		if (mungose.x == this.x && mungose.y == this.y && players == 2){
-			mungose.grow();
+		if (mongoose.x == this.x && mongoose.y == this.y && players == 2){
+			mongoose.grow();
 			this.anotherOne();
 			
 		}
