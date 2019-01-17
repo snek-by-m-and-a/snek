@@ -41,17 +41,17 @@ function Snake(color){
 	this.kill = function(){
 		if(players ==1){
 			end = true;
-			alert(`final length is ${sscore}`)
+			alert(`Final length is: ${sscore}`)
 		}
 		else{
 			if(color == 0){
-				alert(`snek wins round ${round}`);
+				alert(`Snek wins Round: ${round}`);
 				sscore +=1;
 				round +=1;
 				twoPlayerSetup();
 			}
 			else if(color==1){
-				alert(`mongoose wins round ${round}`);
+				alert(`Mongoose wins Round: ${round}`);
 				mscore +=1;
 				round +=1;
 				twoPlayerSetup();

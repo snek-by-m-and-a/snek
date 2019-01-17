@@ -75,7 +75,7 @@ function startscreen(){
 	removeElements();
 	background(100);
 	let twoPlayer;
-	twoPlayer = createButton("two player");
+	twoPlayer = createButton("Two Player");
 	twoPlayer.parent("gameHolder");
 	twoPlayer.mousePressed(twoPlayerSetup);
 	twoPlayer.position((width+twoPlayer.offsetWidth)/2,height/2);
@@ -160,8 +160,8 @@ function runTwoPlayer(){
 	background(100);
 	textSize(scale);
 	stroke(0)
-	text(['mongoose:'+mscore],5,scale);
-	text(['snek:'+sscore],width-3.5*scale,scale);
+	text(['Mongoose: '+mscore],5,scale);
+	text(['Snek: '+sscore],width-3.5*scale,scale);
 	fill(180);
 	noStroke();
 	textSize(40*scale);
@@ -203,7 +203,7 @@ function runSinglePlayer(){
 	snekHasPressed = false;
 	background(100);
 	textSize(scale);
-	text(['snek:'+sscore],width-3.5*scale,scale);
+	text(['Snek: '+sscore],width-3.5*scale,scale);
 	grape.show();
 	grape.eat()
 	snek.update();
