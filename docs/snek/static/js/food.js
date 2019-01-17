@@ -29,12 +29,12 @@ function Grape(){
 	}
 	
 	this.eat = function(){
-		if (mongoose.x == this.x && mongoose.y == this.y && players == 2){
+		if (Math.round(mongoose.x/scale) == Math.round(this.x/scale) && Math.round(mongoose.y/scale) == Math.round(this.y/scale) && players == 2){
 			mongoose.grow();
 			this.anotherOne();
 			
 		}
-		else if (snek.x == this.x && snek.y == this.y){
+		else if (Math.round(snek.x/scale) ==Math.round(this.x/scale) && Math.round(snek.y/scale) ==Math.round(this.y/scale)){
 			snek.grow();
 			this.anotherOne();
 			if (players ==1){sscore++} 

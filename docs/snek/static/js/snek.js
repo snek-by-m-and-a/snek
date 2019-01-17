@@ -75,10 +75,10 @@ function segment(color,index){
 	}
 	
 	this.kill = function(){
-		if (mongoose.x == this.x && mongoose.y == this.y && players == 2){
+		if (mongoose.x == this.x && Math.round(mongoose.y/scale) ==Math.round(this.y/scale) && players == 2){
 			mongoose.kill();
 		}
-		else if (snek.x == this.x && snek.y == this.y){
+		else if (Math.round(snek.x/scale) ==Math.round(this.x/scale) && Math.round(snek.y/scale) ==Math.round(this.y/scale)){
 			snek.kill();
 		}
 	}

@@ -8,6 +8,9 @@ let hasRun = false;
 
 function setup() {
 	console.log(windowWidth);
+	if (windowWidth <=800){
+	scale = windowWidth/40
+	}
 	var myCanvas = createCanvas(40*scale,40*scale);
 	myCanvas.parent("gameHolder");
 	frameRate(10);
