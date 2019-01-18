@@ -45,7 +45,6 @@ button {
 }
 .header{
 	font-family:'Fredericka the Great', cursive;
-	color:violet;
 	font-size:60px;
 	padding:15px;
 	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
@@ -63,6 +62,17 @@ button {
 	color:white;
 	background-color:black;
 	padding:15px;
+}
+
+.blinking{
+    animation:blinkingText 10s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #000;    }
+    49%{    color: purple; }
+    50%{    color: violet; }
+    99%{    color:indigo;  }
+    100%{   color: #000;    }
 }
 
 @media only screen and (max-width:1199px) {
