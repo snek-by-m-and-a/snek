@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	display: flex;
 	justify-content: center;
-	background-image:linear-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+	background-image:linear-gradient(red, orange, yellow, green, blue, indigo, purple, red);
 	height:100vh;
 	min-width:800px;
 }
@@ -15,10 +15,9 @@ button {
 }
 
 #pageContent{
-	width:1200px;
 	margin:auto;
-
 	height:1000px;
+	width:1200px;
 }
 
 #gameHolder{
@@ -88,6 +87,7 @@ button {
 
 @media only screen and (max-width:800px) {
 	#pageContent{
-		width:100%;
+		width:auto;
+		
 	}
 }
