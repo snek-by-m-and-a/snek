@@ -99,7 +99,7 @@ button {
 
 @media only screen and (max-width:800px) {
 	#pageContent{
-		width:auto;
+		width:100%;
 		
 	}
 }
